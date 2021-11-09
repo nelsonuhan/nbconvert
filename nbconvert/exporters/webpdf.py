@@ -112,6 +112,15 @@ class WebPDFExporter(HTMLExporter):
                     'height': min(height, 200 * 72),
                     'printBackground': True,
                 }
+
+            pdf_params['scale'] = 0.85
+            pdf_params['margin'] = {
+                'top': '0.25in',
+                'right': '0.25in',
+                'bottom': '0.25in',
+                'left': '0.25in'
+            }
+
             pdf_data = await page.pdf(pdf_params)
 
             await browser.close()
